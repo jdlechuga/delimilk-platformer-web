@@ -717,8 +717,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tile1`, function (sprite, loc
         game.splash("¡Pasas al siguiente nivel!")
         setLevelTileMap(currentLevel)
     } else {
-        sendMessageToSimulator("data", "" + info.score())
-        sendMessageToSimulator("event", "endGame")
+        sendMessageToSimulator("event", "endGame" + info.score())
         game.over(true, effects.confetti)
     }
 })
@@ -784,8 +783,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 info.onLifeZero(function () {
-    sendMessageToSimulator("data", "" + info.score())
-    sendMessageToSimulator("event", "endGame")
+    sendMessageToSimulator("event", "endGame" + info.score())
     game.over(false, effects.dissolve)
 })
 function showInstruction (text: string) {
